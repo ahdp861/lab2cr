@@ -1,112 +1,130 @@
-﻿
-/*
-Дан циклический двусвязный линейный список и указатель первый 
-элемент этого списка. Необходимо удалить в списке все элементы, у которых правый и 
-левый сосед совпадают. Если таких элементов нет, то оставить список без изменений. 
-Первый и последний элементы считать соседями. В результате вернуть ссылку на 
-последний элемент полученного списка.
 
-Все динамические структуры данных реализовывать через классы. Не использовать STL.  
-Для каждой динамической структуры должен быть предусмотрен стандартный
-набор методов - добавления/удаления/вывода элементов. Во всех задачах обязательно наличие 
-дружественного интерфейса. Ввод данных с клавиатуры.
-*/
+/*
+ *Дан циклический двусвязный линейный список и указатель первый     FIX ME задание не по шаблону
+ *элемент этого списка. Необходимо удалить в списке все элементы, у которых правый и
+ *левый сосед совпадают. Если таких элементов нет, то оставить список без изменений.
+ *Первый и последний элементы считать соседями. В результате вернуть ссылку на
+ *последний элемент полученного списка.
+ *
+ *Все динамические структуры данных реализовывать через классы. Не использовать STL.
+ *Для каждой динамической структуры должен быть предусмотрен стандартный
+ *набор методов - добавления/удаления/вывода элементов. Во всех задачах обязательно наличие
+ *дружественного интерфейса. Ввод данных с клавиатуры.
+ */
 
 #include <iostream>
 using namespace std;
+
 class Node
 {
 public:
     int y;
-    Node* Next;
-    Node* Prev;
-    Node(int x) : y(x), Next(NULL), Prev(NULL) {}
+    //Node* Next; FIX ME некорректное название
+    //Node* Prev;
+    Node* next;
+    Node* previous;
+    Node(int x) : y(x), next(NULL), previous(NULL) {}
 };
 class LinkedList
 {
 public:
-    Node* Head;
-    Node* Tail;
-    LinkedList() : Head(NULL), Tail(NULL) {}
+    //Node* Head; FIX ME некорректное название
+    //Node* Tail;
+    Node* head;
+    Node* tail;
+    LinkedList() : head(NULL), tail(NULL) {}
 };
 
-void AddLast(LinkedList& s, int x)
+//void AddLast(LinkedList& s, int x) FIX ME некорректное название
+void add_last(LinkedList& list, int x)
 {
-    Node* NewNode = new Node(x);
-    NewNode->Next = NULL;
-    NewNode->Prev = s.Tail;
-    if (s.Tail == NULL)
-        s.Head = NewNode;
-    else
-        s.Tail->Next = NewNode;
-    s.Tail = NewNode;
-    s.Tail->Next = s.Head;
-    s.Head->Prev = s.Tail;
+    //Node* NewNode = new Node(x); FIX ME некорректное название
+    Node* new_node = new Node(x);
+    new_node->next = NULL;
+    new_node->previous = list.tail;
+    //if (list.tail == NULL) list.head = new_node; FIX ME нельзя однострочные блоки
+    //else list.tail->next = new_node;
+    if (list.tail == NULL) {
+        list.head = new_node;
+    }
+    else {
+        list.tail->next = new_node;
+    }
+    list.tail = new_node;
+    list.tail->next = list.head;
+    list.head->previous = list.tail;
 }
-void F(LinkedList& s)
+//void F(LinkedList& list) FIX ME некорректное название
+void do_something(LinkedList& list)
 {
-    if (s.Head == NULL)
+    //if (list.head == NULL) return;   FIX ME нельзя однострочные блоки
+    if (list.head == NULL) {
         return;
-    Node* MyNode = s.Head;
-    Node* Next1 = NULL;
+    }
+    //Node* MyNode = list.head; FIX ME некорректное название
+    //Node* Next1 = NULL;   FIX ME некорректное название
+    Node* my_node = list.head;
 
     do {
-        Next1 = MyNode->Next;
-        if ((MyNode->Prev->y == MyNode->Next->y) && (MyNode->Prev!= MyNode->Next))
+        next_temp = my_node->next;
+        if ((my_node->previous->y == my_node->next->y) && (my_node->previous!= my_node->next))
         {
-            if (MyNode == s.Head && MyNode == s.Tail)
+            if (my_node == list.head && my_node == list.tail)
             {
-                delete MyNode;
-                s.Head = NULL;
-                s.Tail = NULL;
+                delete my_node;
+                list.head = NULL;
+                list.tail = NULL;
                 break;
             }
-            else if (MyNode == s.Head)
+            else if (my_node == list.head)
             {
-                s.Head = MyNode->Next;
+                list.head = my_node->next;
             }
-            MyNode->Prev->Next = MyNode->Next;
-            MyNode->Next->Prev = MyNode->Prev;
-            delete MyNode;
-            MyNode = Next1->Prev;
+            my_node->previous->next = my_node->next;
+            my_node->next->previous = my_node->previous;
+            delete my_node;
+            my_node = next_temp->previous;
         }
         else {
-            MyNode = Next1;
+            my_node = next_temp;
         }
-    } while (MyNode != s.Head);
+    } while (my_node != list.head);
 }
-void Show(LinkedList& s)
+//void Show(LinkedList& list) FIX ME некорректное название
+void show_list(LinkedList& list)
 {
-    if (s.Head == NULL)
+    if (list.head == NULL)
     {
         cout << "Список пуст" << endl;
         return;
     }
-    Node* MyNode = s.Head;
+    Node* my_node = list.head;
     do
     {
-        cout << MyNode->y << " ";
-        MyNode = MyNode->Next;
-    } while (MyNode != s.Head);
+        cout << my_node->y << " ";
+        my_node = my_node->next;
+    } while (my_node != list.head);
     cout << endl;
 }
-void Clear(LinkedList& s)
+
+//void Clear(LinkedList& list) FIX ME некорректное название
+void clear_list(LinkedList& list)
 {
-    if (s.Head == NULL)
+    if (list.head == NULL)
         return;
-    Node* MyNode = s.Head;
+    Node* my_node = list.head;
     do
     {
-        Node* Temp = MyNode;
-        MyNode = MyNode->Next;
-        delete Temp;
-    } while (MyNode != s.Head);
-    s.Head = NULL;
-    s.Tail = NULL;
+        //Node* Temp = my_node; FIX ME некорректное название
+        Node* temporary_node = my_node;
+        my_node = my_node->next;
+        delete temporary_node;
+    } while (my_node != list.head);
+    list.head = NULL;
+    list.tail = NULL;
 }
-int main()
-{
-    setlocale(LC_ALL, "Russian");
+
+LinkedList input() {
     LinkedList spisok;
     int n, x;
     cout << "Введите количество чисел, которые необходимо записать в список: ";
@@ -120,13 +138,34 @@ int main()
     {
         cout << "Введите " << i + 1 << " число: ";
         cin >> x;
-        AddLast(spisok, x);
+        add_last(spisok, x);
     }
+    return spisok;
+}
+
+int main()
+{
+    //setlocale(LC_ALL, "Russian"); FIX ME не разрешено
+    LinkedList spisok = input();
+    /*int n, x;
+    cout << "Введите количество чисел, которые необходимо записать в список: "; FIX ME перенести из main
+    cin >> n;
+    if (n <= 0)
+    {
+        cout << "Ошибка." << endl;
+        return 1;
+    }
+    for (int i = 0; i < n;i++)
+    {
+        cout << "Введите " << i + 1 << " число: ";
+        cin >> x;
+        add_last(spisok, x);
+    }*/
     cout << "Исходный список: ";
-    Show(spisok);
-    F(spisok);
+    show_list(spisok);
+    do_something(spisok);
     cout << "Изменённый список: ";
-    Show(spisok);
-    Clear(spisok);
+    show_list(spisok);
+    clear_list(spisok);
     return 0;
 }
