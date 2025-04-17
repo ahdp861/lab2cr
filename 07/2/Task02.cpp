@@ -1,4 +1,4 @@
-﻿/* 
+/* 
 Дано число N (> 0) и указатели P1 и P2 на начало и конец непустой очереди. Извлечь
 из очереди N начальных элементов и вывести их значения (если очередь содержит менее N
 элементов, то извлечь все ее элементы). Вывести также новые адреса начала и конца очереди
@@ -24,7 +24,7 @@
 */
 
 
-# include <windows.h>
+//# include <windows.h> FIX ME ненужный include
 # include <iostream>
 
 using namespace std;
@@ -37,36 +37,39 @@ public:
 };
 typedef Node* PNode;
 
-void add(int data, PNode& Head, PNode& Tail)
+//void add(int data, PNode& Head, PNode& tail) FIX ME некорректное название
+void add(int data, PNode& head, PNode& tail)
 {
-	PNode Temp;
-	if (Head == NULL)
+	//PNode Temp; FIX ME некорректное название
+	PNode temporary_node;
+	if (head == NULL)
 	{
-		Head = new Node;
-		Tail = Head;
-		Head->next = NULL;
+		head = new Node;
+		tail = head;
+		head->next = NULL;
 
 	}
 	else
 	{
-		Temp = new Node;
-		Tail->next = Temp;
-		Tail = Temp;
-		Tail->next = NULL;
+		temporary_node = new Node;
+		tail->next = temporary_node;
+		tail = temporary_node;
+		tail->next = NULL;
 	}
-	Tail->data = data;
+	tail->data = data;
 }
-
-void show1(PNode head)
+ 
+//void show1(PNode head) FIX ME некорректное название
+void show_first_element(PNode head)
 {
-	PNode temp = head;
+	PNode temporary_node = head;
 	cout << endl << "Исходный адрес первого элемента: " << head << " " << head->data;
 
 	cout << endl << "Исходная очередь: ";
-	while (temp != nullptr) 
+	while (temporary_node != nullptr) 
 	{
-		cout << temp->data << " ";
-		temp = temp->next;
+		cout << temporary_node->data << " ";
+		temporary_node = temporary_node->next;
 	}
 
 	PNode last = head;
@@ -80,30 +83,33 @@ void show1(PNode head)
 
 
 
-void del(int m, PNode& Head)
+//void del(int m, PNode& head) FIX ME некорректное название
+void delete_node(int m, PNode& head)
 {
-	PNode temp;
+	PNode temporary_node;
 	for (int i = 0; i < m; i++)
 	{
-		temp = Head;
-		cout << temp->data << " " << temp->next << " ";
-		Head = Head->next;
-		delete temp;
+		temporary_node = head;
+		cout << temporary_node->data << " " << temporary_node->next << " ";
+		head = head->next;
+		delete temporary_node;
 		cout << endl;
 	}
 	cout << endl;
 }
 
-void show2(PNode head)
+//void show2(PNode head) FIX ME некорректное название
+void show_new_queue(PNode head)
 {
-	PNode temp = nullptr;
+	PNode temporary_node = nullptr;
 	PNode temp2 = head;
 	if (head == nullptr)
 	{
 		cout << "Очередь после удаления элементов оказалась пустой" << endl;
-		int* ptr = nullptr;
-		cout << "Начало очереди: " << ptr  << endl;
-		cout << "Конец очереди: " << ptr << endl;
+		//int* ptr = nullptr; FIX ME некорректное название
+		int* pointer = nullptr;
+		cout << "Начало очереди: " << pointer << endl;
+		cout << "Конец очереди: " << pointer << endl;
 	}
 	else
 	{
@@ -111,22 +117,17 @@ void show2(PNode head)
 		cout << "Оставшиеся элементы очереди: ";
 		while (head != nullptr)
 		{
-			temp = head;	
-			cout << temp->data << " ";
+			temporary_node = head;	
+			cout << temporary_node->data << " ";
 			head = head->next;
-			//delete temp;
+			//delete temporary_node;
 		}
-		cout << endl << "Новый конец очереди: " << temp << " " << temp->data << endl;
+		cout << endl << "Новый конец очереди: " << temporary_node << " " << temporary_node->data << endl;
 	}	
 }
 
-
-
-int main()
-{
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	int m,n;
+PNode input() {
+	int m, n;
 	PNode p1 = nullptr;
 	PNode p2 = nullptr;
 	cout << "Добро пожаловать!" << endl;
@@ -146,11 +147,40 @@ int main()
 		cin >> j;
 		add(j, p1, p2);
 	}
+	return p1;
+}
+
+
+int main()
+{
+	//SetConsoleCP(1251); FIX ME не разрешено
+	//SetConsoleOutputCP(1251);
+	/*int m, n;		FIX ME перенести в функцию
+	PNode p1 = nullptr;
+	PNode p2 = nullptr;
+	cout << "Добро пожаловать!" << endl;
+	cout << "Перед нами новая задача:" << endl;
+	cout << "Дано число N (> 0) и указатели P1 и P2 на начало и конец непустой очереди." << endl;
+	cout << "Извлечь из очереди N начальных элементов" << endl;
+	cout << "---------------------------------------------------------" << endl;
+	cout << "Вам необходимо ввести количество элементов очереди и их значения через пробел " << endl;
+	cout << "Мы выведем новые адреса начала и конца очереди, извлечем n значений и выведем на экран" << endl;
+	cout << endl << endl << "----------------------------------------------------------------------------" << endl;
+	cout << "Введите число m - количество элементов очереди: ";
+	cin >> m;
+	cout << endl << "Введите " << m << " значений элементов очереди через пробел ";
+	for (int i = 0; i < m; i++)
+	{
+		int j;
+		cin >> j;
+		add(j, p1, p2);
+	}*/
+	PNode p1 = input();
 	cout << endl << endl << "Введите число n(n>0) - количество элементов" << endl;
 	cout << "очереди, которые нужно извлечь из очереди: ";
 	cin >> n;
-	show1(p1);
-	del(n, p1);
-	show2(p1);
+	show_first_element(p1);
+	delete_node(n, p1);
+	show_new_queue(p1);
 	return 0;
 }
