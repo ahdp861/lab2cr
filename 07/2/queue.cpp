@@ -1,7 +1,7 @@
 #include "queue.h"
 
 //void add(int data, PNode& Head, PNode& tail) FIX ME некорректное название
-void add(int data, PNode& head, PNode& tail) {
+void AddNode(int data, PNode& head, PNode& tail) {
   //PNode Temp; FIX ME некорректное название
   PNode temporary_node;
   if (head == NULL) {
@@ -19,7 +19,7 @@ void add(int data, PNode& head, PNode& tail) {
 }
 
 //void show1(PNode head) FIX ME некорректное название
-void show_initial_queue(PNode head) {
+void ShowInitialQueue(PNode head) {
   PNode temporary_node = head;
   cout << endl << "Исходный адрес первого элемента: " << head << " " << head->data;
 
@@ -38,7 +38,7 @@ void show_initial_queue(PNode head) {
 }
 
 //void del(int m, PNode& head) FIX ME некорректное название
-void delete_n_elements(int n, PNode& head) {
+void DeleteNElements(int n, PNode& head) {
   PNode temporary_node;
   for (int i = 0; i < n; i++) {
     if (head == nullptr)  // Защита от удаления из пустой очереди
@@ -54,7 +54,7 @@ void delete_n_elements(int n, PNode& head) {
 }
 
 //void show2(PNode head) FIX ME некорректное название
-void show_new_queue(PNode head) {
+void ShowNewQueue(PNode head) {
   PNode temporary_node = nullptr;
   PNode temp2 = head;
   if (head == nullptr) {
@@ -77,7 +77,7 @@ void show_new_queue(PNode head) {
   }
 }
 
-PNode input(int& n) {
+PNode Input(int& n) {
   int m;
   PNode p1 = nullptr;
   PNode p2 = nullptr;
