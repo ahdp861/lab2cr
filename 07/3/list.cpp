@@ -1,17 +1,14 @@
 #include "list.h"
 
 //void add(int data, PNode& Head, PNode& LastNode) FIX ME некорректное название
-void add_node(int data, PNode& head, PNode& last_node)
-{
+void add_node(int data, PNode& head, PNode& last_node) {
   PNode temporary_node;
-  if (head == nullptr)
-  {
+  if (head == nullptr) {
     head = new Node;
     last_node = head;
     head->next = nullptr;
   }
-  else
-  {
+  else {
     temporary_node = new Node;
     last_node->next = temporary_node;
     last_node = temporary_node;
@@ -21,31 +18,26 @@ void add_node(int data, PNode& head, PNode& last_node)
 }
 
 //void Show(PNode& Head) FIX ME некорректное название
-void show(PNode& head)
-{
+void show(PNode& head) {
   //PNode Mynode = head; FIX ME некорректное название
   PNode my_node = head;
   cout << "Все числа из списка: ";
 
-  while (my_node != nullptr)
-  {
+  while (my_node != nullptr) {
     cout << my_node->x << " ";
     my_node = my_node->next;
   }
 }
 
 //void addafter(int data, PNode& head) FIX ME некорректное название
-void add_after(int data, PNode& head)
-{
+void add_after(int data, PNode& head) {
   //PNode Temp = head; FIX ME некорректное название
   PNode temporary_node = head;
   PNode my_node;
   int count = 1;
-  while (temporary_node != nullptr)
-  {
+  while (temporary_node != nullptr) {
     ++count; // FIX ME префиксная запись
-    if (count == 4)
-    {
+    if (count == 4) {
       my_node = new Node;
       my_node->x = data;
       my_node->next = temporary_node->next;
@@ -57,13 +49,11 @@ void add_after(int data, PNode& head)
 }
 
 //void showafter(PNode& head) FIX ME некорректное название
-void show_after(PNode& head)
-{
+void show_after(PNode& head) {
   PNode my_node = head;
   cout << endl;
   cout << "Все числа из измененного списка: ";
-  while (my_node != nullptr)
-  {
+  while (my_node != nullptr) {
     cout << my_node->x << " ";
     my_node = my_node->next;
   }
@@ -71,20 +61,17 @@ void show_after(PNode& head)
 }
 
 //PNode showlast(PNode& head) FIX ME некорректное название
-PNode show_last(PNode& head)
-{
+PNode show_last(PNode& head) {
   //PNode my_node_2 = head; FIX ME некорректное название
   PNode my_node_2 = head;
-  while (my_node_2 != nullptr && my_node_2->next != nullptr)
-  {
+  while (my_node_2 != nullptr && my_node_2->next != nullptr) {
     my_node_2 = my_node_2->next;
   }
   return my_node_2;
 }
 
 //PNode find(PNode head, int data) FIX ME некорректное название
-PNode find_node(PNode head, int data)
-{
+PNode find_node(PNode head, int data) {
   //PNode node = head; FIX ME некорректное название
   PNode node = head;
   while (node && node->x != data)
@@ -93,13 +80,11 @@ PNode find_node(PNode head, int data)
 }
 
 //void DeleteNode(PNode& head, PNode OldNode) FIX ME некорректное название
-void delete_node(PNode& head, PNode old_node)
-{
+void delete_node(PNode& head, PNode old_node) {
   PNode node = head;
   if (head == old_node)
     head = old_node->next;  // удаляем первый элемент 
-  else
-  {
+  else {
     while (node->next != old_node) // ищем элемент 
       node = node->next;
     node->next = old_node->next;
@@ -107,8 +92,7 @@ void delete_node(PNode& head, PNode old_node)
   delete old_node; // освобождаем память 
 }
 
-PNode input()
-{
+PNode input() {
   PNode list = NULL;
   PNode last_node = NULL;
   cout << "Добро пожаловать!" << endl;
@@ -126,8 +110,7 @@ PNode input()
   int n, x, m;
   cin >> n;
   cout << "Введите " << n << " элементов списка ";
-  for (int i = 1; i <= n; i++)
-  {
+  for (int i = 1; i <= n; i++) {
     cin >> x;
     add_node(x, list, last_node);
   }
