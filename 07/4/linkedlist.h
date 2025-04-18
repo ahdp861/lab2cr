@@ -4,8 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class Node
-{
+class Node {
 public:
     int y;
     //Node* Next; FIX ME некорректное название
@@ -15,8 +14,7 @@ public:
     Node(int x) : y(x), next(NULL), previous(NULL) {}
 };
 
-class LinkedList
-{
+class LinkedList {
 public:
     //Node* Head; FIX ME некорректное название
     //Node* Tail;
