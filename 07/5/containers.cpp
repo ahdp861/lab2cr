@@ -2,7 +2,7 @@
 
 //void Input(container& N, int n)//Заполнение контейнеров FIX ME некорректное название
 template <typename container>
-void input(container& container, int container_size) {//Заполнение контейнеров 
+void Input(container& container, int container_size) {//Заполнение контейнеров 
     //int m, x; FIX ME некорректное название
     int option, element;
     cout << "Выберете способ заполнения контейнера: " << endl;
@@ -54,14 +54,14 @@ void input(container& container, int container_size) {//Заполнение к�
 
 //void Print(const container& container)//Вывод содержимого контейнеров FIX ME некорректное название
 template <typename container>
-void print_elements(const container& container) {
+void PrintElements(const container& container) {
     for (auto it = container.begin(); it != container.end(); it++)
         cout << *it << " ";
     cout << endl;
 }
 
 //void Insert(deque<int>& D, list<int>& L)//Вставка перед 5 с конца элемента списка последних 5 элементов дека в обратном порядке FIX ME некоректное название
-void insert(deque<int>& my_deque, list<int>& my_list) {//Вставка перед 5 с конца элемента списка последних 5 элементов дека в обратном порядке 
+void InsertElement(deque<int>& my_deque, list<int>& my_list) {//Вставка перед 5 с конца элемента списка последних 5 элементов дека в обратном порядке 
     list<int>::iterator it = my_list.end();
     //for (int i = 0; i < 5;i++) FIX ME постфиксная запись, скобки
     for (int i = 0; i < 5;++i) {
