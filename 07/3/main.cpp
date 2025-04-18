@@ -1,7 +1,6 @@
 #include "list.h"
 
-int main()
-{
+int main() {
   //SetConsoleCP(1251);	FIX ME не разрешено
   //SetConsoleOutputCP(1251);
   /*PNode list = NULL;	FIX ME перенести из main, некорректные названия
@@ -48,16 +47,13 @@ int main()
   cout << "Ваш выбор: ";
   cin >> choice;
   cout << endl;
-  switch (choice)
-  {
-  case 1:
-  {
+  switch (choice) {
+  case 1: {
     cout << "Введите число - количество элементов которое вы хотите удалить: ";
     int num;
     cin >> num;
     //for (int i = 0; i < num; i++) FIX ME постфиксная запись
-    for (int i = 0; i < num; ++i)
-    {
+    for (int i = 0; i < num; ++i) {
       cout << "Введите значение элемента, который вы хотите удалить: ";
       int x;
       cin >> x;
@@ -70,15 +66,12 @@ int main()
   }
   break;
 
-  case 2:
-  {
-    {
+  case 2: { {
       cout << "Спасибо за терпение!!!" << endl;
       cout << "До свидания!!!" << endl;
     }
   }
-  default:
-  {
+  default: {
     cout << "Введено неверное число";
     break;
   }
