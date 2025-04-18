@@ -14,14 +14,14 @@ Stack::~Stack() {
   counter = 0;
 }
 
-void Stack::add_node(int new_node_value) {
+void Stack::AddNode(int new_node_value) {
   Node* new_node = new Node(new_node_value);
   new_node->next = p1;
   p1 = new_node;
   ++counter;
 }
 
-void Stack::delete_top() {
+void Stack::DeleteTop() {
   if (p1 == nullptr) {
     cout << "Стек пуст, удалять нечего." << endl;
     return;
@@ -44,7 +44,7 @@ void Stack::delete_top() {
   delete temporary_node;
 }
 
-void Stack::show_stack() const {
+void Stack::ShowStack() const {
   Node* temporary_node = p1;
   if (temporary_node == nullptr) {
     cout << "Стек пуст." << endl;
