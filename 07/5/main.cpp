@@ -1,7 +1,6 @@
 #include "containers.h"
 
-int main()
-{
+int main() {
     //setlocale(LC_ALL, "Russian"); не разрешено
     int n1, n2;
     deque <int> my_deque;
