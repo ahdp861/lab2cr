@@ -1,18 +1,15 @@
 #include "queue.h"
 
 //void add(int data, PNode& Head, PNode& tail) FIX ME некорректное название
-void add(int data, PNode& head, PNode& tail)
-{
+void add(int data, PNode& head, PNode& tail) {
   //PNode Temp; FIX ME некорректное название
   PNode temporary_node;
-  if (head == NULL)
-  {
+  if (head == NULL) {
     head = new Node;
     tail = head;
     head->next = NULL;
   }
-  else
-  {
+  else {
     temporary_node = new Node;
     tail->next = temporary_node;
     tail = temporary_node;
@@ -22,21 +19,18 @@ void add(int data, PNode& head, PNode& tail)
 }
 
 //void show1(PNode head) FIX ME некорректное название
-void show_initial_queue(PNode head)
-{
+void show_initial_queue(PNode head) {
   PNode temporary_node = head;
   cout << endl << "Исходный адрес первого элемента: " << head << " " << head->data;
 
   cout << endl << "Исходная очередь: ";
-  while (temporary_node != nullptr)
-  {
+  while (temporary_node != nullptr) {
     cout << temporary_node->data << " ";
     temporary_node = temporary_node->next;
   }
 
   PNode last = head;
-  while (last->next != nullptr)
-  {
+  while (last->next != nullptr) {
     last = last->next;
   }
 
@@ -44,11 +38,9 @@ void show_initial_queue(PNode head)
 }
 
 //void del(int m, PNode& head) FIX ME некорректное название
-void delete_n_elements(int n, PNode& head)
-{
+void delete_n_elements(int n, PNode& head) {
   PNode temporary_node;
-  for (int i = 0; i < n; i++)
-  {
+  for (int i = 0; i < n; i++) {
     if (head == nullptr)  // Защита от удаления из пустой очереди
       break;
 
@@ -62,24 +54,20 @@ void delete_n_elements(int n, PNode& head)
 }
 
 //void show2(PNode head) FIX ME некорректное название
-void show_new_queue(PNode head)
-{
+void show_new_queue(PNode head) {
   PNode temporary_node = nullptr;
   PNode temp2 = head;
-  if (head == nullptr)
-  {
+  if (head == nullptr) {
     cout << "Очередь после удаления элементов оказалась пустой" << endl;
     //int* ptr = nullptr; FIX ME некорректное название
     int* pointer = nullptr;
     cout << "Начало очереди: " << pointer << endl;
     cout << "Конец очереди: " << pointer << endl;
   }
-  else
-  {
+  else {
     cout << "Новое начало очереди: " << temp2 << " " << temp2->data << endl;
     cout << "Оставшиеся элементы очереди: ";
-    while (head != nullptr)
-    {
+    while (head != nullptr) {
       temporary_node = head;
       cout << temporary_node->data << " ";
       head = head->next;
@@ -89,8 +77,7 @@ void show_new_queue(PNode head)
   }
 }
 
-PNode input(int& n)
-{
+PNode input(int& n) {
   int m;
   PNode p1 = nullptr;
   PNode p2 = nullptr;
@@ -105,8 +92,7 @@ PNode input(int& n)
   cout << "Введите число m - количество элементов очереди: ";
   cin >> m;
   cout << endl << "Введите " << m << " значений элементов очереди через пробел ";
-  for (int i = 0; i < m; i++)
-  {
+  for (int i = 0; i < m; i++) {
     int j;
     cin >> j;
     add(j, p1, p2);
