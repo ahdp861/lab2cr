@@ -32,12 +32,12 @@ int main() {
   int m;
   cin >> m;
   cout << endl;
-  show(list);
+  Show(list);
   cout << endl;
-  add_after(m, list);
-  show_after(list);
+  AddAfter(m, list);
+  ShowAfter(list);
   cout << endl;
-  PNode last = show_last(list);
+  PNode last = ShowLast(list);
   cout << "Ссылка на последний элемент: " << last << " " << last->x;
 
   int choice;
@@ -60,9 +60,9 @@ int main() {
       PNode p = find_node(list, x);
       cout << endl;
       cout << "Удаление...." << endl;
-      delete_node(list, p);
+      DeleteNode(list, p);
     }
-    show(list);
+    Show(list);
   }
   break;
 
