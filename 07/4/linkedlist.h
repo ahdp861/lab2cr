@@ -24,17 +24,17 @@ public:
 };
 
 //void AddLast(LinkedList& s, int x) FIX ME некорректное название
-void add_last(LinkedList& list, int x);
+void AddLast(LinkedList& list, int x);
 
 //void F(LinkedList& list) FIX ME некорректное название
-void do_something(LinkedList& list);
+void DoSomething(LinkedList& list);
 
 //void Show(LinkedList& list) FIX ME некорректное название
-void show_list(LinkedList& list);
+void ShowList(LinkedList& list);
 
 //void Clear(LinkedList& list) FIX ME некорректное название
-void clear_list(LinkedList& list);
+void ClearList(LinkedList& list);
 
-LinkedList input();
+LinkedList Input();
 
 #endif
