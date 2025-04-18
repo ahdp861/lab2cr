@@ -39,9 +39,9 @@ int main() {
     stack.add_node(node_value);
   }
 
-  stack.show_stack();
+  stack.ShowStack();
 
-  stack.delete_top();
+  stack.DeleteTop();
 
   return 0;
 }
