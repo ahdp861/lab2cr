@@ -18,10 +18,10 @@ int main() {
         add_last(spisok, x);
     }*/
     cout << "Исходный список: ";
-    show_list(spisok);
-    do_something(spisok);
+    ShowList(spisok);
+    DoSomething(spisok);
     cout << "Изменённый список: ";
-    show_list(spisok);
-    clear_list(spisok);
+    ShowList(spisok);
+    ClearList(spisok);
     return 0;
 }
