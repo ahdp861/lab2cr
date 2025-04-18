@@ -14,17 +14,17 @@ public:
 typedef Node* PNode;
 
 //void add(int data, PNode& Head, PNode& tail) FIX ME некорректное название
-void add(int data, PNode& head, PNode& tail);
+void AddNode(int data, PNode& head, PNode& tail);
 
 //void show1(PNode head) FIX ME некорректное название
-void show_initial_queue(PNode head);
+void ShowInitialQueue(PNode head);
 
 //void del(int m, PNode& head) FIX ME некорректное название
-void delete_n_elements(int n, PNode& head);
+void DeleteNElements(int n, PNode& head);
 
 //void show2(PNode head) FIX ME некорректное название
-void show_new_queue(PNode head);
+void ShowNewQueue(PNode head);
 
-PNode input(int& n);
+PNode Input(int& n);
 
 #endif
