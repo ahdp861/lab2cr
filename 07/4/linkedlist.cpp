@@ -1,7 +1,7 @@
 #include "linkedlist.h"
 
 //void AddLast(LinkedList& s, int x) FIX ME некорректное название
-void add_last(LinkedList& list, int x) {
+void AddLast(LinkedList& list, int x) {
     //Node* NewNode = new Node(x); FIX ME некорректное название
     Node* new_node = new Node(x);
     new_node->next = NULL;
@@ -20,7 +20,7 @@ void add_last(LinkedList& list, int x) {
 }
 
 //void F(LinkedList& list) FIX ME некорректное название
-void do_something(LinkedList& list) {
+void DoSomething(LinkedList& list) {
     //if (list.head == NULL) return;   FIX ME нельзя однострочные блоки
     if (list.head == NULL) {
         return;
@@ -55,7 +55,7 @@ void do_something(LinkedList& list) {
 }
 
 //void Show(LinkedList& list) FIX ME некорректное название
-void show_list(LinkedList& list) {
+void ShowList(LinkedList& list) {
     if (list.head == NULL) {
         cout << "Список пуст" << endl;
         return;
@@ -69,7 +69,7 @@ void show_list(LinkedList& list) {
 }
 
 //void Clear(LinkedList& list) FIX ME некорректное название
-void clear_list(LinkedList& list) {
+void ClearList(LinkedList& list) {
     if (list.head == NULL)
         return;
     Node* my_node = list.head;
@@ -83,7 +83,7 @@ void clear_list(LinkedList& list) {
     list.tail = NULL;
 }
 
-LinkedList input() {
+LinkedList Input() {
     LinkedList spisok;
     int n, x;
     cout << "Введите количество чисел, которые необходимо записать в список: ";
