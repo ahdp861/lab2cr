@@ -27,9 +27,9 @@ int main()
   int n;
   PNode p1 = input(n);
 
-  show_initial_queue(p1);
-  delete_n_elements(n, p1);
-  show_new_queue(p1);
+  ShowInitialQueue(p1);
+  DeleteNElements(n, p1);
+  ShowNewQueue(p1);
 
   return 0;
 }
