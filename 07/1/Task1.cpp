@@ -38,7 +38,7 @@ class Stack {
 
         Stack(): p1(nullptr), counter(0){}
         //void add(int x) {   FIX ME некорректное название
-        void add_node(int new_node_value) {   
+        void AddNode(int new_node_value) {   
             //Node* newnode = new Node(new_node_value); FIX ME некоректное название
             Node* new_node = new Node(new_node_value);
             new_node->next = p1;
@@ -48,7 +48,7 @@ class Stack {
         }
 
         //void topdel() { //извлечение 1 элемента и его удаление  FIX ME некорректное название
-        void delete_top() { //извлечение 1 элемента и его удаление
+        void DeleteTop() { //извлечение 1 элемента и его удаление
             //Node* temp = p1; FIX ME некорректное название
             Node* temporary_node = p1;
             cout << "Первый элемент стека:" << endl;
@@ -69,7 +69,7 @@ class Stack {
             }
 
     //void show() { FIX ME некорректное название
-    void show_stack() {
+    void ShowStack() {
         //Node* temp = p1; FIX ME некорректное название
         while (temporary_node != nullptr) {
             cout << temporary_node->d << endl;
@@ -92,10 +92,10 @@ int main() {
         int node_value;
         cout << "Введите элемент стека" << endl;
         cin >> node_value;
-        stack.add_node(node_value);
+        stack.AddNode(node_value);
     }
     cout << "Стек:" << endl;
-    stack.show_stack();
-    stack.delete_top();
+    stack.ShowStack();
+    stack.DeleteTop();
     return 0;
 } 
