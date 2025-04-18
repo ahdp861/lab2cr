@@ -1,8 +1,7 @@
 #include "linkedlist.h"
 
 //void AddLast(LinkedList& s, int x) FIX ME некорректное название
-void add_last(LinkedList& list, int x)
-{
+void add_last(LinkedList& list, int x) {
     //Node* NewNode = new Node(x); FIX ME некорректное название
     Node* new_node = new Node(x);
     new_node->next = NULL;
@@ -21,8 +20,7 @@ void add_last(LinkedList& list, int x)
 }
 
 //void F(LinkedList& list) FIX ME некорректное название
-void do_something(LinkedList& list)
-{
+void do_something(LinkedList& list) {
     //if (list.head == NULL) return;   FIX ME нельзя однострочные блоки
     if (list.head == NULL) {
         return;
@@ -36,15 +34,13 @@ void do_something(LinkedList& list)
         next_temp = my_node->next;
         if ((my_node->previous->y == my_node->next->y) && (my_node->previous != my_node->next))
         {
-            if (my_node == list.head && my_node == list.tail)
-            {
+            if (my_node == list.head && my_node == list.tail) {
                 delete my_node;
                 list.head = NULL;
                 list.tail = NULL;
                 break;
             }
-            else if (my_node == list.head)
-            {
+            else if (my_node == list.head) {
                 list.head = my_node->next;
             }
             my_node->previous->next = my_node->next;
@@ -59,16 +55,13 @@ void do_something(LinkedList& list)
 }
 
 //void Show(LinkedList& list) FIX ME некорректное название
-void show_list(LinkedList& list)
-{
-    if (list.head == NULL)
-    {
+void show_list(LinkedList& list) {
+    if (list.head == NULL) {
         cout << "Список пуст" << endl;
         return;
     }
     Node* my_node = list.head;
-    do
-    {
+    do {
         cout << my_node->y << " ";
         my_node = my_node->next;
     } while (my_node != list.head);
@@ -76,13 +69,11 @@ void show_list(LinkedList& list)
 }
 
 //void Clear(LinkedList& list) FIX ME некорректное название
-void clear_list(LinkedList& list)
-{
+void clear_list(LinkedList& list) {
     if (list.head == NULL)
         return;
     Node* my_node = list.head;
-    do
-    {
+    do {
         //Node* Temp = my_node; FIX ME некорректное название
         Node* temporary_node = my_node;
         my_node = my_node->next;
@@ -97,13 +88,11 @@ LinkedList input() {
     int n, x;
     cout << "Введите количество чисел, которые необходимо записать в список: ";
     cin >> n;
-    if (n <= 0)
-    {
+    if (n <= 0) {
         cout << "Ошибка." << endl;
         return spisok;
     }
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cout << "Введите " << i + 1 << " число: ";
         cin >> x;
         add_last(spisok, x);
