@@ -1,7 +1,6 @@
 #include "linkedlist.h"
 
-int main()
-{
+int main() {
     //setlocale(LC_ALL, "Russian"); FIX ME не разрешено
     LinkedList spisok = input();
     /*int n, x;
